@@ -2,21 +2,17 @@ let map;
 let radiusInput;
 
 function initMap() {
-    // Get the radius input element
     radiusInput = document.getElementById('radius-input');
 
-    // Validate the radius input
     const radius = parseInt(radiusInput.value, 10);
     if (isNaN(radius) || radius <= 0) {
         alert('Please enter a valid radius greater than 0.');
         return;
     }
 
-    // Hide the input container and show the map container
     document.getElementById('input-container').style.display = 'none';
     document.getElementById('map-container').style.display = 'block';
 
-    // Initialize the map centered at the user's location
     navigator.geolocation.getCurrentPosition(
         position => {
             const userLocation = {
@@ -28,7 +24,6 @@ function initMap() {
                 zoom: 15,
             });
 
-            // Call function to show nearby restaurants with the specified radius
             showNearbyRestaurants();
         },
         error => {
@@ -46,7 +41,7 @@ function showNearbyRestaurants() {
 
     const request = {
         location: userLocation,
-        radius: parseInt(radiusInput.value, 10), // Convert to integer
+        radius: parseInt(radiusInput.value, 10), 
         types: ['restaurant']
     };
 
@@ -68,26 +63,26 @@ function createMarker(place) {
         map: map,
         position: place.geometry.location,
         title: place.name,
-        animation: google.maps.Animation.DROP, // Add drop animation
+        animation: google.maps.Animation.DROP, 
     });
 
     const infowindow = new google.maps.InfoWindow({
         content: `<strong>${place.name}</strong><br>${place.vicinity}`,
     });
 
-    // Open Google Maps when the marker is clicked
+    
     marker.addListener('click', () => {
         const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${place.geometry.location.lat()},${place.geometry.location.lng()}`;
         window.open(googleMapsUrl, '_blank');
     });
 
-    // Show info window when the marker is clicked
+   
     marker.addListener('click', () => {
         infowindow.open(map, marker);
     });
 }
 
-// Clear all markers from the map
+
 function clearMarkers() {
     if (map) {
         map.data.forEach(marker => {
