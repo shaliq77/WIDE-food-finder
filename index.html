@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>WIDE Food Finder</title>
+</head>
+<body>
+
+<h1 id="app-title">WIDE Food Finder</h1>
+
+<div id="input-container">
+    <label for="radius-input">Enter Search Radius (meters):</label>
+    <input type="number" id="radius-input" min="1" placeholder="Enter radius...">
+    <button onclick="initMap()">Search Restaurants</button>
+</div>
+
+<div id="map-container" style="display: none;">
+    <div id="map"></div>
+</div>
+
+<script src="script.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG1iA_bUwWpg3oEvMPcrMUg0rrGhg_srw&libraries=places&callback=initMap">
+</script>
+
+</body>
+</html>
