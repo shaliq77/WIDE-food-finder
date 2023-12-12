@@ -11,7 +11,7 @@ body {
     text-align: center;
     font-size: 36px;
     margin: 20px 0;
-    color: #000000; /* Blue color */
+    color: #000000; 
 }
 
 #input-container {
@@ -34,7 +34,7 @@ label {
 
 #radius-input:focus {
     outline: none;
-    border-color: #3498db; /* Highlight color on focus */
+    border-color: #3498db; 
 }
 
 button {
@@ -48,7 +48,7 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9; /* Darker color on hover */
+    background-color: #2980b9;
 }
 
 #map-container {
@@ -73,7 +73,7 @@ button:hover {
     }
 }
 
-/* Style for the restaurant info window */
+
 .info-window {
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -85,7 +85,7 @@ button:hover {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Animation for the restaurant info window */
+
 @keyframes slideIn {
     from { transform: translateY(-20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
